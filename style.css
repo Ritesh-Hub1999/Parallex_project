@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#wrapper{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container{
+    height: 100%;
+    width: 1200px;
+
+    /* left side and right side mai is tarah sa margin lagaya jata hai ki hamara content center mai ajai */
+    margin:0 auto;
+
+    padding: 20px;
+}
+
+h1{
+    text-align: center;
+    margin: 20px 0;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+ .gallery{
+    /* flex islia bana raha ki image ka bich mai spacing asani sa hojai */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+ }
+
+ .card{
+    width: 32%;
+
+    /* relative islia kar rha hai positioning qki image ka upr text araha hai so hama absolute karna hoga and hama parent ko non static mark karna hoga so islia relative kia */
+    position: relative;
+
+    margin-bottom: 20px;
+
+    /* card ka border ko round karna ka lia border radius use kia hai */
+    border-radius: 10px;
+    
+    overflow: hidden;
+
+ }
+
+ .card img{
+    /* jitna parent ki width hai and height kar do yaha parent card ka accroding*/
+    width: 100%;
+    height: 100%;
+
+    /* hama image ko black and white karna hai so hama filter lagana hoga  */
+    filter: grayscale(100%);
+    box-shadow: 0 0 20px #333; 
+}
+
+.card:hover{
+    /* card ko hover karna sa thora scale ho */
+    transform: scale(1.03);
+    
+    transition: 0.5s;
+
+    /* card ka upr shadow sa shadow girna ka lia filter use kar li hai */
+    filter: drop-shadow(0 0 10px #333);
+
+    /* object-fit: cover; */
+}
+
+.card:hover img{
+    filter: grayscale(0%);
+}
+
+.card figcaption{
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg,rgba(0, 0 ,0 ,0.5)0%, rgba(255,255,255,255)500%);
+}
+
+.card:hover figcaption{
+    opacity: 1;
+    transform: scale(1.03);
+}
